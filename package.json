@@ -1,0 +1,45 @@
+{
+  "name": "@arlex/eslint-config-base",
+  "version": "1.0.0",
+  "description": "arlex js lint rules",
+  "main": "index.js",
+  "bin": {
+    "@arlex/eslint-config-base": "./bin/www"
+  },
+  "scripts": {
+    "test": "npx eslint --no-eslintrc -c .eslintrc.js ./test",
+    "lint": "npx eslint --no-eslintrc -c .eslintrc.js ./",
+    "lint:fix": "npx eslint --no-eslintrc -c .eslintrc.js --fix ./"
+  },
+  "keywords": [],
+  "author": "ztj",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "index.js": [
+      "prettier --write",
+      "npm run lint:fix"
+    ],
+    "test/**/*.{js}": [
+      "prettier --write",
+      "npm run lint:fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "eslint": "^6.8.0",
+    "lint-staged": "^10.5.1",
+    "husky": "^4.3.0"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.1"
+  }
+}
