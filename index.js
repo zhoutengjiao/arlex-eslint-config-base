@@ -7,8 +7,10 @@ module.exports = {
   rules: {},
   parserOptions: {
     sourceType: "module",
-    jsx: true,
     ecmaVersion: 2020,
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   env: {
     browser: true,
