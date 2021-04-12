@@ -1,3 +1,4 @@
 var a = 20;
 
-console.log(a);
+var b = "${s}";
+console.log(a, b);
