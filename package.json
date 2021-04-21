@@ -1,15 +1,15 @@
 {
   "name": "@arlex/eslint-config-base",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "arlex js lint rules",
   "main": "index.js",
   "scripts": {
     "test": "npx eslint --no-eslintrc -c .eslintrc.js --ext js,vue ./test",
-    "test:fix": "npx eslint --no-eslintrc -c .eslintrc.js --ext js,vue ./test",
+    "test:fix": "npx eslint --no-eslintrc -c .eslintrc.js --ext js,vue --fix ./test",
     "lint": "npx eslint --no-eslintrc -c .eslintrc.js --ext js,vue ./",
     "lint:fix": "npx eslint --no-eslintrc -c .eslintrc.js --ext js,vue --fix ./"
   },
-  "keywords": [],
+  "keywords": ["eslint", "arlex"],
   "author": "zhoutengjiao",
   "license": "ISC",
   "husky": {
@@ -20,12 +20,12 @@
   },
   "lint-staged": {
     "index.js": [
-      "prettier --write",
-      "npm run lint:fix"
+      "npm run lint:fix",
+      "prettier --write"
     ],
-    "test/**/*.{js}": [
-      "prettier --write",
-      "npm run lint:fix"
+    "{src,test}/**/*.{js, vue}": [
+      "npm run lint:fix",
+      "prettier --write"
     ]
   },
   "devDependencies": {
@@ -35,6 +35,7 @@
     "lint-staged": "^10.5.1"
   },
   "dependencies": {
+    "@arlex/prettier-config-base": "^1.0.1",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.1.0",
